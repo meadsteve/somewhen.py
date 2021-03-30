@@ -1,6 +1,8 @@
 import datetime
 from copy import copy, deepcopy
 
+import pytest
+
 from somewhen import Somewhen
 
 
@@ -66,3 +68,14 @@ def test_it_looks_appropriate_as_a_string():
 def test_it_looks_appropriate_as_a_repr():
     assert repr(Somewhen()) == "Somewhen()"
 
+
+@pytest.mark.parametrize("attribute", ["year", "month", "day", "hour", "minute", "second", "microsecond"])
+def test_that_you_cant_find_out_when_somewhen_is_from_attributes(attribute):
+    with pytest.raises(RuntimeError):
+        getattr(Somewhen(), attribute)
+
+
+@pytest.mark.parametrize("method", ["date", "time"])
+def test_that_you_cant_find_out_when_somewhen_is_from_methods(method):
+    with pytest.raises(RuntimeError):
+        getattr(Somewhen(), method)()

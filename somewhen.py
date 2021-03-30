@@ -1,5 +1,7 @@
 import datetime
 
+SENSIBLE_ERROR_MESSAGE = "Somewhen is somewhen. Don't ask for trifling details."
+
 
 class Somewhen(datetime.datetime):
     _singleton = None
@@ -51,3 +53,39 @@ class Somewhen(datetime.datetime):
 
     def __copy__(self):
         return self
+
+    @property
+    def year(self):
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
+
+    @property
+    def month(self):
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
+
+    @property
+    def day(self):
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
+
+    @property
+    def hour(self):
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
+
+    @property
+    def minute(self):
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
+
+    @property
+    def second(self):
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
+
+    @property
+    def microsecond(self):
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
+
+    def date(self):
+        # TODO: return somedate
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
+
+    def time(self):
+        # TODO: return sometime
+        raise RuntimeError(SENSIBLE_ERROR_MESSAGE)
