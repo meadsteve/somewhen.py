@@ -3,7 +3,7 @@ from copy import copy, deepcopy
 
 import pytest
 
-from somewhen import Somewhen
+from somewhen import Somewhen, Somedate, Sometime
 
 
 def test_somewhen_is_a_datetime():
@@ -75,7 +75,9 @@ def test_that_you_cant_find_out_when_somewhen_is_from_attributes(attribute):
         getattr(Somewhen(), attribute)
 
 
-@pytest.mark.parametrize("method", ["date", "time"])
-def test_that_you_cant_find_out_when_somewhen_is_from_methods(method):
-    with pytest.raises(RuntimeError):
-        getattr(Somewhen(), method)()
+def test_somewhen_is_on_some_date():
+    assert (Somewhen()).date() is Somedate()
+
+
+def test_somewhen_is_at_some_time():
+    assert (Somewhen()).time() is Sometime()
