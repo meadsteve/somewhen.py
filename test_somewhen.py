@@ -57,3 +57,12 @@ def test_a_day_after_somewhen_is_somewhen():
 
 def test_a_day_before_somewhen_is_somewhen():
     assert (Somewhen() - datetime.timedelta(days=1)) == Somewhen()
+
+
+def test_it_looks_appropriate_as_a_string():
+    assert str(Somewhen()) == "somewhen :shrug:"
+
+
+def test_it_looks_appropriate_as_a_repr():
+    assert repr(Somewhen()) == "Somewhen()"
+

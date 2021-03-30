@@ -40,6 +40,12 @@ class Somewhen(datetime.datetime):
             return NotImplemented
         return self
 
+    def __str__(self):
+        return "somewhen :shrug:"
+
+    def __repr__(self):
+        return "Somewhen()"
+
     def __deepcopy__(self, memodict={}):
         return self
 
